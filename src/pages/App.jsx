@@ -1,11 +1,18 @@
-import Main from './Main';
+import Navbar from '../components/Navbar';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Navbar />,
+    }
+  ]);
   return (
     <>
-      <header></header>
-      <Main />
-      <footer></footer>
+      <main>
+        <RouterProvider router={router}/>
+      </main>
     </>
   )
 }

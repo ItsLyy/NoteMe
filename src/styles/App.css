@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('./root.css');
+@import url('./navbar.css');
 
-:root {
-  --first-color: #070F2B;
-  --second-color: #1B1A55;
-  --third-color: #535C91;
-  --fourth-color: #9290C3;
+* {
+  padding: 0;
+  margin: 0;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+main {
+  background-color: var(--first-color);
+  min-height: 100vh;
+  width: 100%; 
+}
