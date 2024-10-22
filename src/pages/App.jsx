@@ -1,10 +1,10 @@
-import './styles/App.css'
+import Main from './Main';
 
 function App() {
   return (
     <>
       <header></header>
-      <main></main>
+      <Main />
       <footer></footer>
     </>
   )
