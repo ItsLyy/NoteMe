@@ -1,11 +1,12 @@
 import NavbarMenu from "./NavbarMenu";
 import NavbarAction from "./NavbarAction";
 
-function NavbarApp() {
+// eslint-disable-next-line
+function NavbarApp({ searchEvent }) {
   return (
     <nav className="navbar">
       <NavbarMenu />
-      <NavbarAction />
+      <NavbarAction searchEvent={ searchEvent }/>
     </nav>
   )
 }

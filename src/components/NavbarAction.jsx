@@ -24,6 +24,9 @@ class NavbarAction extends React.Component {
   }
 
   onSearchEventHandler(event) {
+    // eslint-disable-next-line
+    const { searchEvent } = this.props;
+    searchEvent(event.target.value);
     this.setState(() => {
       return {
         searchValue: event.target.value,

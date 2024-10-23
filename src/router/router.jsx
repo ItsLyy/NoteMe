@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../pages/App";
 import NoteApp from "../components/NoteApp";
+import NotFound from "../components/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
         element: <NoteApp />,
       },
     ]
+  },
+  {
+    path: '*',
+    element: <NotFound />
   }
 ]);
 
