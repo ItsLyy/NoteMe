@@ -1,17 +1,13 @@
 import Navbar from '../components/Navbar';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Navbar />,
-    }
-  ]);
+  
   return (
     <>
+      <Navbar />
       <main>
-        <RouterProvider router={router}/>
+        <Outlet />
       </main>
     </>
   )

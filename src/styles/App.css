@@ -7,13 +7,10 @@
   margin: 0;
 }
 
-html {
-  background-color: var(--first-color);
-}
-
 body {
   font-family: 'Inter', sans-serif;
-  
+  background: linear-gradient(to right bottom, #070F2B, #1B1A55);
+  color: #E2E2E2;
 }
 
 main {
