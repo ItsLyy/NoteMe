@@ -1,0 +1,124 @@
+.content__container {
+  display: flex;
+  width: 100%;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  
+  width: 22rem;
+  background-color: #2E236C20;
+  border: 1px solid var(--second-color);
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.note__information {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.note__title {
+  font-weight: 400;
+  font-size: 2em;
+}
+
+.note__date {
+  display: inline-block;
+  font-weight: 300;
+  font-size: .9em;
+  color: #e2e2e230;
+  margin: 0 0 1rem;
+}
+
+.note__description {
+  font-weight: 300;
+  color: #e2e2e275;
+  margin: 0 0 3rem;
+}
+
+.note__description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+          line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.note__action {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: .5rem;
+}
+
+.note__archieve-button {
+  height: 44px;
+  width: 44px;
+  box-sizing: border-box;
+  padding: .5rem;
+}
+
+.note__archieve-button svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--fourth-color);
+}
+
+.note__detail-button {
+  height: 100%;
+  width: 8rem;
+}
+
+.note__archieve-button,
+.note__detail-button {
+  background-color: transparent;
+  border: 1px solid var(--fourth-color);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--fourth-color);
+  box-sizing: border-box;
+  cursor: pointer;
+
+  transition: 300ms ease-in-out;
+}
+
+.note__archieve-button--archieved,
+.note__archieve-button:hover,
+.note__detail-button:hover {
+  background-color: var(--fourth-color);
+  color: var(--first-color);
+}
+
+.note__archieve-button--archieved svg,
+.note__archieve-button:hover svg {
+  fill: var(--first-color);
+}
+
+.note-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  height: 24rem;
+}
+
+.note-empty__reason {
+  font-size: 3em;
+  font-weight: 500;
+}
+
+.note-empty__action {
+  text-decoration: none;
+  color: var(--fourth-color);
+}
