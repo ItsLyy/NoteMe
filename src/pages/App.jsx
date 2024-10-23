@@ -35,3 +35,7 @@ class App extends React.Component {
 }
 
 export default App
+
+// * TODO : Menambahkan 3 titik menu di setiap note untuk membuka menu hapus dan edit
+// * TODO : Menambahkan fitur tambah
+// * TODO : Menambahkan fitur responsive
