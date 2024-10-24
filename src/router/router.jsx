@@ -10,6 +10,10 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: '/note-detail/:idNote',
+        element: <NoteDetail />
+      },
+      {
         path: '/note/:filterNote',
         element: <NoteApp />,
       },
@@ -18,10 +22,6 @@ const router = createBrowserRouter([
         element: <NoteApp />,
       },
     ]
-  },
-  {
-    path: '/note-detail/:idNote',
-    element: <NoteDetail />
   },
   {
     path: '*',

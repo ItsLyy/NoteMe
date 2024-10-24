@@ -1,35 +1,34 @@
 import React from 'react';
-import NavbarApp from '../components/NavbarApp';
 import { Outlet } from 'react-router-dom';
+import { getInitialData } from '../utils/data';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     
-    this.onSearchInputHandler = this.onSearchInputHandler.bind(this);
+    this.onArchiveButtonEventHandler = this.onArchiveButtonEventHandler.bind(this);
 
     this.state = {
+      notes: getInitialData(),
       searchValue: ''
     }
   }
 
   render() {
-    const { searchValue } = this.state;
+    const { notes, searchValue } = this.state;
     return (
       <>
-        <header>
-          <NavbarApp searchEvent={this.onSearchInputHandler}/>
-        </header>
         <main>
-          <Outlet context={ {searchValue} }/>
+          <Outlet context={{ notes, searchValue }}/>
         </main>
       </>
     )
   }
 
-  onSearchInputHandler(searchInputValue) {
-    this.setState(() => {
-      return { searchValue: searchInputValue }
+  onArchiveButtonEventHandler(id, condition) {
+    this.setState((previousState) => {
+      const stateUpdate = previousState.notes.find((note) => note.id === id).archived = condition;
+      return stateUpdate;
     })
   }
 }

@@ -7,8 +7,8 @@ function NoteDetailInformation({ note }) {
   return (
     <>
       <h1 className="note-detail__title">{title}</h1>
-      <span className="note-detail-date">{showFormattedDate(createdAt)}</span>
-      <p className="note-detail-description">{body}</p>
+      <span className="note-detail__date">{showFormattedDate(createdAt)}</span>
+      <p className="note-detail__description">{body}</p>
     </>
   )
 }

@@ -1,37 +1,32 @@
 import React from "react";
-import { getInitialData } from "../utils/data";
 import NoteList from "./NoteList";
+import NavbarApp from "./NavbarApp";
 
 class NoteApp extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      notes: getInitialData(),
-    }
+    this.onSearchInputHandler = this.onSearchInputHandler.bind(this);
 
-    this.onArchiveButtonEventHandler = this.onArchiveButtonEventHandler.bind(this);
-    this.onSearchInputEventHandler = this.onSearchInputEventHandler.bind(this);
+    this.state = {
+      searchValue: ''
+    }
   }
 
   render() {
     return (
-      <section className="inbox" id="inbox">
-        <NoteList notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} />
-      </section>
+      <>
+        <NavbarApp searchEvent={this.onSearchInputHandler}/>
+        <section className="inbox" id="inbox">
+          <NoteList notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} searchValue={this.state.searchValue} />
+        </section>
+      </>
     )
   }
 
-  onArchiveButtonEventHandler(id, condition) {
-    this.setState((previousState) => {
-      const stateUpdate = previousState.notes.find((note) => note.id === id).archived = condition;
-      return stateUpdate;
-    })
-  }
-
-  onSearchInputEventHandler(searchInputValue) {
-    this.setState((previousState) => {
-      return previousState.filter((note) => note.title.toLowerCase().includes(searchInputValue.toLowerCase()));
+  onSearchInputHandler(searchInputValue) {
+    this.setState(() => {
+      return { searchValue: searchInputValue }
     })
   }
 }
