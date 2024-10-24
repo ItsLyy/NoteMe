@@ -39,3 +39,4 @@ export default App
 // * TODO : Menambahkan 3 titik menu di setiap note untuk membuka menu hapus dan edit
 // * TODO : Menambahkan fitur tambah
 // * TODO : Menambahkan fitur responsive
+// * TODO : Membuat design UI untuk detail note 

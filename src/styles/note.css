@@ -1,15 +1,19 @@
-.content__container {
+.inbox {
   display: flex;
+  justify-content: center;
   width: 100%;
+}
+
+.inbox__area {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
   gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .note {
   display: flex;
   flex-direction: column;
   
-  width: 22rem;
   background-color: #2E236C20;
   border: 1px solid var(--second-color);
   padding: 1rem;

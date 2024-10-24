@@ -16,7 +16,9 @@ class NoteApp extends React.Component {
 
   render() {
     return (
-      <NoteList notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} />
+      <section className="inbox" id="inbox">
+        <NoteList notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} />
+      </section>
     )
   }
 

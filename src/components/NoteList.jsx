@@ -10,7 +10,7 @@ function NoteList({ notes, archieveEvent }) {
   const noteCategory = getNoteWithCategory(notes, filterNote);
 
   return (
-    <div className="content__container">
+    <div className="inbox__area">
       { 
         noteCategory.length > 0 ? noteCategory.filter((note) => {
           return searchValue === '' ? note : note.title.toLowerCase().includes(searchValue.toLowerCase()); 
