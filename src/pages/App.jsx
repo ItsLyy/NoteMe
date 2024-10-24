@@ -20,6 +20,16 @@ class App extends React.Component {
       <>
         <main>
           <Outlet context={{ notes, searchValue }}/>
+          <section id='add-note' className="add-note">
+            <div className="add-note__container-form">
+              <form action="" className="note-form">
+
+              </form>
+            </div>
+            <div className="add-note__container-output">
+              
+            </div>
+          </section>
         </main>
       </>
     )
