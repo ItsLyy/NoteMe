@@ -2,10 +2,10 @@ import NavbarMenu from "./NavbarMenu";
 import NavbarAction from "./NavbarAction";
 
 // eslint-disable-next-line
-function NavbarApp({ searchEvent }) {
+function NavbarApp({ searchEvent, archievedFilter, allFilterEvent, nonArchievedFilterEvent, archievedFilterEvent }) {
   return (
     <nav className="navbar">
-      <NavbarMenu />
+      <NavbarMenu archievedFilter={archievedFilter} allFilterEvent={allFilterEvent} nonArchievedFilterEvent={nonArchievedFilterEvent} archievedFilterEvent = {archievedFilterEvent} />
       <NavbarAction searchEvent={ searchEvent }/>
     </nav>
   )

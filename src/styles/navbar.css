@@ -5,6 +5,7 @@
   border-bottom: 1px solid #e2e2e210;
   box-sizing: border-box;
   padding: 1rem .5rem;
+  margin-bottom: 1rem;
 }
 
 .navbar__page {
@@ -22,6 +23,9 @@
   padding: .5rem;
   box-sizing: border-box;
   position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 
   transition: 300ms ease-in-out;
 }

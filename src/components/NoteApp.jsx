@@ -1,33 +1,21 @@
 import React from "react";
 import NoteList from "./NoteList";
-import NavbarApp from "./NavbarApp";
 
 class NoteApp extends React.Component {
   constructor(props) {
     super(props);
-
-    this.onSearchInputHandler = this.onSearchInputHandler.bind(this);
-
-    this.state = {
-      searchValue: ''
-    }
   }
 
   render() {
+    // eslint-disable-next-line
+    const { notes, archieveEvent, searchValue, archievedFilter, isDetail, detailButtonEvent, selectedNoteDetail } = this.props;
     return (
       <>
-        <NavbarApp searchEvent={this.onSearchInputHandler}/>
         <section className="inbox" id="inbox">
-          <NoteList notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} searchValue={this.state.searchValue} />
+          <NoteList notes={ notes } archieveEvent={ archieveEvent } searchValue={searchValue} archievedFilter={archievedFilter} isDetail={isDetail} detailButtonEvent={detailButtonEvent} selectedNoteDetail={selectedNoteDetail} />
         </section>
       </>
     )
-  }
-
-  onSearchInputHandler(searchInputValue) {
-    this.setState(() => {
-      return { searchValue: searchInputValue }
-    })
   }
 }
 

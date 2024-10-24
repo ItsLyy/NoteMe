@@ -1,11 +1,9 @@
-import { useOutletContext, useParams } from "react-router-dom";
 import NoteDetailInformation from "./NoteDetailInformation";
 
-function NoteDetail() {
-  const { idNote } = useParams();
-  const { notes } = useOutletContext();
-  console.log(notes);
-  const noteFilter = notes.find(note => note.id.toString() === idNote.toString());
+// eslint-disable-next-line
+function NoteDetail({ notes, noteId }) {
+  // eslint-disable-next-line
+  const noteFilter = notes.find(note => note.id.toString() === noteId.toString());
   return(
     <section id="note-detail" className="note-detail">
       <div className="note-detail__container">

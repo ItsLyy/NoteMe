@@ -3,6 +3,13 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #00000090;
+  z-index: 10;
+  box-sizing: border-box;
+  backdrop-filter: blur(5px);
 }
 
 .note-detail__container {
@@ -10,7 +17,8 @@
   min-height: 100vh;
   box-sizing: border-box;
   padding: 4rem;
-  background-color: #2E236C40;
+  background-color: #2E236C60;
+  backdrop-filter: blur(5px);
   border-right: 1px solid var(--second-color);
   border-left: 1px solid var(--second-color);
 

@@ -1,34 +1,55 @@
 .inbox {
   display: flex;
-  justify-content: center;
   width: 100%;
 }
 
 .inbox__area {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  grid-template-rows: auto;
   gap: 1.5rem;
 }
 
 .note {
   display: flex;
   flex-direction: column;
+  max-height: 16.25rem;
+  height: 16.25rem;
   
   background-color: #2E236C20;
   border: 1px solid var(--second-color);
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 5px;
+
+  transition: all 400ms ease-in-out;
+}
+
+.note:has(.note__information.note__information--detail) {
+  max-height: 40rem;
+  height: 20rem;
 }
 
 .note__information {
   width: 100%;
+  overflow: hidden;
   flex-grow: 1;
 }
 
 .note__title {
   font-weight: 400;
   font-size: 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+          line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.note__information.note__information--detail .note__title {
+  display: block;
+  transition: all 300ms ease-in-out;
 }
 
 .note__date {
@@ -37,21 +58,27 @@
   font-size: .9em;
   color: #e2e2e230;
   margin: 0 0 1rem;
+  transition: 300ms ease-in-out;
 }
 
 .note__description {
   font-weight: 300;
   color: #e2e2e275;
   margin: 0 0 3rem;
-}
 
-.note__description {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
           line-clamp: 3;
   -webkit-box-orient: vertical;
+  transition: 300ms ease-in-out;
+}
+
+.note__information.note__information--detail .note__description {
+  display: block;
+  text-overflow: unset;
+  transition: 300ms ease-in-out;
 }
 
 .note__action {
@@ -75,7 +102,7 @@
 }
 
 .note__detail-button {
-  height: 100%;
+  height: 44px;
   width: 8rem;
 }
 
@@ -89,6 +116,7 @@
   align-items: center;
   text-decoration: none;
   color: var(--fourth-color);
+  font-family: inherit;
   box-sizing: border-box;
   cursor: pointer;
 
@@ -107,13 +135,15 @@
   fill: var(--first-color);
 }
 
+
+
 .note-empty {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  width: 100%;
+  width: 100vw;
   height: 24rem;
 }
 
