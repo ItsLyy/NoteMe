@@ -38,7 +38,7 @@ class App extends React.Component {
           <NoteApp notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} searchValue={this.state.searchValue} archievedFilter={this.state.archievedFilter} isDetail={this.state.isDetail} detailButtonEvent={this.onDetailButtonEventHandler} selectedNoteDetail={this.state.selectedNoteDetail} />
         </main>
         <aside>
-
+          
         </aside>
       </>
     )
