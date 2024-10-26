@@ -2,6 +2,7 @@ import React from 'react';
 import NavbarApp from '../components/NavbarApp';
 import NoteApp from '../components/NoteApp';
 import { getInitialData } from '../utils/data';
+import NoteForm from '../components/NoteForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class App extends React.Component {
       notes: getInitialData(),
       archievedFilter: 'all',
       selectedNoteDetail: 0,
+      addNoteFormOpened: false,
     }
 
     this.onSearchInputHandler = this.onSearchInputHandler.bind(this);
@@ -20,6 +22,9 @@ class App extends React.Component {
     this.onNonArchievedFilterEventHandler = this.onNonArchievedFilterEventHandler.bind(this);
     this.onArchievedFilterEventHandler = this.onArchievedFilterEventHandler.bind(this);
     this.onDetailButtonEventHandler = this.onDetailButtonEventHandler.bind(this);
+    this.onSubmitNoteEventHandler = this.onSubmitNoteEventHandler.bind(this);
+    this.onAddNoteNavEventHandle = this.onAddNoteNavEventHandle.bind(this);
+    this.onDeleteButtonEventHnadler = this.onDeleteButtonEventHnadler.bind(this);
   }
 
   render() {
@@ -28,26 +33,29 @@ class App extends React.Component {
         <header>
           <NavbarApp 
             searchEvent={this.onSearchInputHandler} 
+            searchValue={this.state.searchValue}
             allFilterEvent={this.onAllFilterEventHandler} 
             nonArchievedFilterEvent={this.onNonArchievedFilterEventHandler} 
             archievedFilterEvent={this.onArchievedFilterEventHandler} 
             archievedFilter={this.state.archievedFilter}
+            addNoteEvent={this.onAddNoteNavEventHandle}
+            addNoteFormOpened={this.state.addNoteFormOpened}
           />
         </header>
         <main>
-          <NoteApp notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} searchValue={this.state.searchValue} archievedFilter={this.state.archievedFilter} isDetail={this.state.isDetail} detailButtonEvent={this.onDetailButtonEventHandler} selectedNoteDetail={this.state.selectedNoteDetail} />
+          <NoteApp notes={this.state.notes} archieveEvent={this.onArchiveButtonEventHandler} deleteEvent={this.onDeleteButtonEventHnadler} searchValue={this.state.searchValue} archievedFilter={this.state.archievedFilter} isDetail={this.state.isDetail} detailButtonEvent={this.onDetailButtonEventHandler} selectedNoteDetail={this.state.selectedNoteDetail} />
         </main>
-        <aside>
-          
+        <aside className={this.state.addNoteFormOpened ? 'active' : '' }>
+           <NoteForm submitNoteEvent={this.onSubmitNoteEventHandler}/>
         </aside>
       </>
     )
   }
 
-  onSearchInputHandler(searchInputValue) {
+  onSearchInputHandler(event) {
     this.setState(() => {
       return {
-        searchValue: searchInputValue,
+        searchValue: event.target.value,
       }
     })
   }
@@ -59,6 +67,7 @@ class App extends React.Component {
       }
     })
   }
+
   onNonArchievedFilterEventHandler() {
     this.setState(() => {
       return {
@@ -66,6 +75,7 @@ class App extends React.Component {
       }
     })
   }
+
   onArchievedFilterEventHandler() {
     this.setState(() => {
       return {
@@ -80,10 +90,43 @@ class App extends React.Component {
     })
   }
 
+  onDeleteButtonEventHnadler(id) {
+    this.setState((previousState) => {
+      return {
+        notes: previousState.notes.filter(note => note.id.toString() !== id.toString())
+      }
+    })
+  }
+
   onDetailButtonEventHandler(id) {
     this.setState(() => {
       return {
         selectedNoteDetail: id,
+      }
+    })
+  }
+
+  onSubmitNoteEventHandler({ title, body, archived }) {
+    this.setState((previousState) => {
+      return {
+        notes: [
+          ...previousState.notes,
+          {
+            id: +new Date(),
+            title,
+            body,
+            createdAt: new Date(),
+            archived
+          }
+        ]
+      }
+    })
+  }
+
+  onAddNoteNavEventHandle(condition) {
+    this.setState(() => {
+      return {
+        addNoteFormOpened: condition
       }
     })
   }

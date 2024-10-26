@@ -1,5 +1,4 @@
 import React from "react";
-import { showFormattedDate } from "../utils/data";
 import NoteFormInput from "./NoteFormInput";
 import NoteFormOutput from "./NoteFormOutput";
 
@@ -8,20 +7,27 @@ class NoteForm extends React.Component {
     super(props);
     this.state = {
       notes: {
-        id: 0,
         title: '',
-        createAt: showFormattedDate(new Date()),
         body: '',
         archived: false,
-      }
+      },
+      detailOpened: false,
     }
+
+    this.onArchiveButtonEventHandler = this.onArchiveButtonEventHandler.bind(this);
+    this.onDetailButtonEventHandler = this.onDetailButtonEventHandler.bind(this);
+    this.titleInputEvent = this.titleInputEvent.bind(this);
+    this.descriptionInputEvent = this.descriptionInputEvent.bind(this);
+    this.onSubmitEvent = this.onSubmitEvent.bind(this);
   }
 
   render() {
     return(
       <div className="add-note">
-        {/* <NoteFormOutput /> */}
-        <NoteFormInput titleInputEvent={this.titleInputEvent} descriptionInputEvent={this.descriptionInputEvent} titleValue={this.state.notes.title} descriptionValue={this.state.notes.body} />
+        <h2>Preview</h2>
+        <NoteFormOutput title={this.state.notes.title} description={this.state.notes.body} archieved={this.state.notes.archived} detailOpened={this.state.notes.detailOpened} archieveEvent={this.onArchiveButtonEventHandler} detailButtonEvent={this.onDetailButtonEventHandler} />
+        <h2>Add Note</h2>
+        <NoteFormInput titleInputEvent={this.titleInputEvent} descriptionInputEvent={this.descriptionInputEvent} title={this.state.notes.title} description={this.state.notes.body} submitEvent={this.onSubmitEvent} />
       </div>
     );
   }
@@ -52,6 +58,12 @@ class NoteForm extends React.Component {
     this.setState((previousState) => {
       return previousState.notes.body = e.target.value;
     })
+  }
+
+  onSubmitEvent(e) {
+    e.preventDefault();
+    // eslint-disable-next-line
+    this.props.submitNoteEvent(this.state.notes);
   }
 }
 

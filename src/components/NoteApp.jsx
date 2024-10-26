@@ -8,11 +8,11 @@ class NoteApp extends React.Component {
 
   render() {
     // eslint-disable-next-line
-    const { notes, archieveEvent, searchValue, archievedFilter, isDetail, detailButtonEvent, selectedNoteDetail } = this.props;
+    const { notes, archieveEvent, deleteEvent, searchValue, archievedFilter, isDetail, detailButtonEvent, selectedNoteDetail } = this.props;
     return (
       <>
         <section className="inbox" id="inbox">
-          <NoteList notes={ notes } archieveEvent={ archieveEvent } searchValue={searchValue} archievedFilter={archievedFilter} isDetail={isDetail} detailButtonEvent={detailButtonEvent} selectedNoteDetail={selectedNoteDetail} />
+          <NoteList notes={ notes } archieveEvent={ archieveEvent } deleteEvent={ deleteEvent } searchValue={searchValue} archievedFilter={archievedFilter} isDetail={isDetail} detailButtonEvent={detailButtonEvent} selectedNoteDetail={selectedNoteDetail} />
         </section>
       </>
     )

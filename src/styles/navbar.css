@@ -18,8 +18,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
+  width: var(--button-size);
+  height: var(--button-size);
   padding: .5rem;
   box-sizing: border-box;
   position: relative;
@@ -104,13 +104,27 @@
 
 .navbar__add-note {
   font-family: 'Inter', sans-serif;
-  padding: 0 2rem;
+  padding: .5rem;
+  box-sizing: border-box;
   background: linear-gradient(to right bottom, #433D8B, #3D3786);
   cursor: pointer;
   font-weight: 600;
   color: #e2e2e2;
   border: none;
   border-radius: .2rem;
+  width: var(--button-size);
+  height: var(--button-size);
   outline: none;
 }
 
+.navbar__add-note svg {
+  width: 100%;
+  height: 100%;
+  fill: #e2e2e2;
+  transform: rotate(0);
+  transition: 300ms ease-in-out;
+}
+
+.navbar__add-note.navbar__add-note--open svg {
+  transform: rotate(45deg);
+}
