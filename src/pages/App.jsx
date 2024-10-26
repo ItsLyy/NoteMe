@@ -28,6 +28,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.notes);
     return (
       <>
         <header>
@@ -115,7 +116,7 @@ class App extends React.Component {
             id: +new Date(),
             title,
             body,
-            createdAt: new Date(),
+            createdAt: new Date().toString(),
             archived
           }
         ]
